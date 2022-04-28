@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  php:
+    image: linqiuyu/php:5.6-apache
+    ports:
+      - "80:80"
+      - "10081-10090:81-90"
+      - "6379:6379"
+    volumes:
+      - ./app:/var/www/html
+      - ./php/conf:/usr/local/etc/php
+      - ./php/php-fpm.d:/usr/local/etc/php-fpm.d
+      - ./apache/conf:/etc/apache2
+      - ./apache/log:/var/log/apache2
+      - ./redis/conf:/etc/redis
+      - ./redis/data:/var/lib/redis
+#    depends_on:
+#      - mysql
+#      - redis
+#
+#  mysql:
+#    image: mysql:8.0
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: 123456
+#    volumes:
+#      - ./mysql/conf:/etc/mysql/conf.d
+#      - ./mysql/logs:/var/log/mysql
+#      - ./mysql/data:/var/lib/mysql
+#
+#  redis:
+#    ports:
+#      - "6379:6379"
+#    image: redis:alpine
+#    volumes:
+#      - ./redis/data:/data
+#
+#  elastic:
+#    image: elasticsearch:7.17.1
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"
+#    environment:
+#      - discovery.type=single-node
+#      - ELASTIC_USERNAME=elastic
+#      - ELASTIC_PASSWORD=elastic
+#      - ES_JAVA_OPTS=-Xms500m -Xmx500m
+#    volumes:
+#      - ./elasticsearch/data:/usr/share/elasticsearch/data
