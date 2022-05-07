@@ -6,7 +6,9 @@ if [ "${1#-}" != "$1" ]; then
 	set -- apache2-foreground "$@"
 fi
 
-service redis-server start
+chmod 777 /var/lib/redis
 chmod 777 /var/www
+
+service redis-server start
 
 exec "$@"

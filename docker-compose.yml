@@ -2,11 +2,21 @@ version: "3.9"
 
 services:
   php:
-    image: linqiuyu/php:5.6-apache
+    image: linqiuyu/php:5.6-apache-jancent
     ports:
       - "80:80"
       - "10081-10090:81-90"
       - "6379:6379"
+    extra_hosts:
+      - "ms.chengji-inc.com:127.0.0.1"
+      - "tsp.124zhe.com:127.0.0.1"
+      - "zngl.124zhe.com:127.0.0.1"
+      - "rank.124zhe.com:127.0.0.1"
+      - "cjfx.124zhe.com:127.0.0.1"
+      - "fb.cjfx.124zhe.com:127.0.0.1"
+      - "acn.chengji-inc.com:127.0.0.1"
+      - "dddz.jiancent.com:127.0.0.1"
+      - "dd.chengji-inc.com:127.0.0.1"
     volumes:
       - ./app:/var/www/html
       - ./php/conf:/usr/local/etc/php
@@ -15,6 +25,7 @@ services:
       - ./apache/log:/var/log/apache2
       - ./redis/conf:/etc/redis
       - ./redis/data:/var/lib/redis
+      - ./log:/var/www/log
 #    depends_on:
 #      - mysql
 #      - redis
