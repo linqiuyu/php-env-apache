@@ -1,0 +1,21 @@
+<VirtualHost _default_:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R=301,L]
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    SSLEngine on
+    SSLCertificateFile /etc/apache2/certificate/apache-certificate.crt
+    SSLCertificateKeyFile /etc/apache2/certificate/apache.key
+   <Directory "/var/www/html">
+      Options FollowSymLinks ExecCGI
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+      Require all granted
+	  DirectoryIndex index.php index.html
+  </Directory>
+</VirtualHost>
