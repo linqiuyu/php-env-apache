@@ -2,7 +2,7 @@ FROM php:5.6-apache
 
 COPY docker-php-entrypoint /usr/local/bin/
 COPY composer.phar /usr/local/bin/composer
-RUN chmod + x /usr/local/bin/composer
+RUN chmod +x /usr/local/bin/composer
 
 RUN apt-get update && apt install -y libpng-dev libjpeg-dev libjpeg62-turbo-dev libmcrypt-dev redis-server vim ffmpeg && \
     docker-php-ext-configure gd --with-freetype --with-jpeg-dir && \
