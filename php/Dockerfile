@@ -8,7 +8,7 @@ RUN chmod +x /usr/local/bin/composer
 COPY ext/freetype-2.7.1.tar.gz /usr/local/src/freetype-2.7.1.tar.gz
 WORKDIR /usr/local/src/
 RUN tar -zxvf  freetype-2.7.1.tar.gz
-WORKDIR /usr/local/src/freetype-2.7.1.tar
+WORKDIR /usr/local/src/freetype-2.7.1
 RUN ./configure --prefix=/usr/local/freetype && make && make install
 
 RUN apt-get update && apt install -y libpng-dev libjpeg-dev libjpeg62-turbo-dev libmcrypt-dev redis-server vim ffmpeg memcached && \
