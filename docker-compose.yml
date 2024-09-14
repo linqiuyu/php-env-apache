@@ -11,15 +11,7 @@ services:
     networks:
       - php-env-apache
     extra_hosts:
-      - "ms.chengji-inc.com:127.0.0.1"
-      - "tsp.124zhe.com:127.0.0.1"
-      - "zngl.124zhe.com:127.0.0.1"
-      - "rank.124zhe.com:127.0.0.1"
-      - "cjfx.124zhe.com:127.0.0.1"
-      - "fb.cjfx.124zhe.com:127.0.0.1"
-      - "acn.chengji-inc.com:127.0.0.1"
-      - "dddz.jiancent.com:127.0.0.1"
-      - "dd.chengji-inc.com:127.0.0.1"
+      - "example.local:127.0.0.1"
     volumes:
       - ./app:/var/www/html
       - ./php/conf:/usr/local/etc/php
