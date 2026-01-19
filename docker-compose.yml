@@ -7,7 +7,7 @@ services:
     ports:
       - "80:80"
       - "10081-10090:81-90"
-      - "6379:6379"
+      - "127.0.0.1:6379:6379"
     networks:
       - php-env-apache
     extra_hosts:
@@ -28,7 +28,7 @@ services:
 #  mysql:
 #    image: mysql:8.0
 #    ports:
-#      - "3306:3306"
+#      - "127.0.0.1:3306:3306"
 #    environment:
 #      MYSQL_ROOT_PASSWORD: 123456
 #    volumes:
@@ -38,7 +38,7 @@ services:
 #
 #  redis:
 #    ports:
-#      - "6379:6379"
+#      - "127.0.0.1:6379:6379"
 #    image: redis:alpine
 #    volumes:
 #      - ./redis/data:/data
@@ -46,8 +46,8 @@ services:
 #  elastic:
 #    image: elasticsearch:7.17.1
 #    ports:
-#      - "9200:9200"
-#      - "9300:9300"
+#      - "127.0.0.1:9200:9200"
+#      - "127.0.0.1:9300:9300"
 #    environment:
 #      - discovery.type=single-node
 #      - ELASTIC_USERNAME=elastic
