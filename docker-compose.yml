@@ -20,6 +20,7 @@ services:
       - ./redis/conf:/etc/redis
       - ./redis/data:/var/lib/redis
       - ./log:/var/log
+      - ./www-log:/var/www/log
 #    depends_on:
 #      - mysql
 #      - redis
