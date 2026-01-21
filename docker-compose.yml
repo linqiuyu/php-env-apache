@@ -17,10 +17,9 @@ services:
       - ./php/conf:/usr/local/etc/php
       - ./php/php-fpm.d:/usr/local/etc/php-fpm.d
       - ./apache/conf:/etc/apache2
-      - ./apache/log:/var/log/apache2
       - ./redis/conf:/etc/redis
       - ./redis/data:/var/lib/redis
-      - ./log:/var/www/log
+      - ./log:/var/log
 #    depends_on:
 #      - mysql
 #      - redis
